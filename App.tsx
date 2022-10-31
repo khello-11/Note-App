@@ -11,7 +11,7 @@ import NoteProvider from "./app/context/NoteProvider";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const [user, setUser] = useState<any>({});
+  const [user, setUser] = useState<{}>({});
   const [isAppFirstTimeOpen, setIsAppFirstTimeOpen] = useState<boolean>(false);
 
   const findUser = async () => {
