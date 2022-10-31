@@ -29,10 +29,10 @@ const reverseData = (data: any) => {
 
 const NoteScreen: FC = ({ user, navigation }: any) => {
   const [greet, setGreet] = useState("Evening");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const { notes, setNotes, FindNotes } = useNotes();
-  const [resultNoteFound, setResultNoteFound] = useState<boolean>(false);
+  const [resultNotFound, setResultNotFound] = useState<boolean>(false);
 
   const FindGreet = () => {
     const hrs = new Date().getHours();
@@ -55,11 +55,11 @@ const NoteScreen: FC = ({ user, navigation }: any) => {
     navigation.navigate("NoteDetails", { note });
   };
 
-  const handleOnSearchInput = async text => {
+  const handleOnSearchInput = async (text: string) => {
     setSearchQuery(text);
     if (!text.trim()) {
       setSearchQuery("");
-      setResultNoteFound(false);
+      setResultNotFound(false);
       return await FindNotes();
     }
     const filteredNotes = notes.filter((note: any) => {
@@ -71,12 +71,12 @@ const NoteScreen: FC = ({ user, navigation }: any) => {
     if (filteredNotes.length) {
       setNotes([...filteredNotes]);
     } else {
-      setResultNoteFound(true);
+      setResultNotFound(true);
     }
   };
   const handleOnClear = async () => {
     setSearchQuery("");
-    setResultNoteFound(false);
+    setResultNotFound(false);
     await FindNotes();
   };
 
@@ -95,7 +95,7 @@ const NoteScreen: FC = ({ user, navigation }: any) => {
             />
           ) : null}
 
-          {resultNoteFound ? (
+          {resultNotFound ? (
             <NotFound />
           ) : (
             <FlatList

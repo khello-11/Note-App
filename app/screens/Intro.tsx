@@ -15,7 +15,7 @@ const Intro = ({ onFinish }: any) => {
   const [name, setname] = useState("");
 
   const handelSubmit = async () => {
-    const user = { name: name };
+    const user = { name };
     await AsyncStorage.setItem("user", JSON.stringify(user));
     if (onFinish) onFinish();
   };
@@ -31,7 +31,7 @@ const Intro = ({ onFinish }: any) => {
           onChangeText={text => setname(text)}
         />
         {name.trim().length >= 3 ? (
-          <RoundIconBtn antIconname="arrowright" onPress={handelSubmit} />
+          <RoundIconBtn antIconName="arrowright" onPress={handelSubmit} />
         ) : null}
       </View>
     </>

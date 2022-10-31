@@ -23,6 +23,7 @@ const App = () => {
     setIsAppFirstTimeOpen(false);
   };
   useEffect(() => {
+    // AsyncStorage.clear()
     findUser();
   }, []);
   const RenderNoteScreen = (props: any) => {
