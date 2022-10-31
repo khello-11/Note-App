@@ -11,7 +11,7 @@ import NoteProvider from "./app/context/NoteProvider";
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const [user, setuser] = useState<any>({});
+  const [user, setUser] = useState<any>({});
   const [isAppFirstTimeOpen, setIsAppFirstTimeOpen] = useState<boolean>(false);
 
   const findUser = async () => {
@@ -19,7 +19,7 @@ const App = () => {
 
     if (name === null) return setIsAppFirstTimeOpen(true);
 
-    setuser(JSON.parse(name));
+    setUser(JSON.parse(name));
     setIsAppFirstTimeOpen(false);
   };
   useEffect(() => {
