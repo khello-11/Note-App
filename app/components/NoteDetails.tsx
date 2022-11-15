@@ -1,11 +1,4 @@
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Alert,
-} from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Alert } from "react-native";
 import colors from "../misc/colors";
 import RoundIconBtn from "./RoundIconBtn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -45,20 +38,16 @@ const NoteDetails = (props: any) => {
 
   // Alert Function
   const displayDeleteAlert = () => {
-    Alert.alert(
-      "Are You Sure!",
-      "This action will delete your note permanently",
-      [
-        {
-          text: "Delete",
-          onPress: deleteNote,
-        },
-        {
-          text: "No Thanks",
-          onPress: () => console.log("nooooo "),
-        },
-      ]
-    );
+    Alert.alert("Are You Sure!", "This action will delete your note permanently", [
+      {
+        text: "Delete",
+        onPress: deleteNote,
+      },
+      {
+        text: "No Thanks",
+        onPress: () => console.log("no "),
+      },
+    ]);
   };
 
   const handleUpdate = async (title: string, desc: string, time: string) => {
@@ -90,9 +79,7 @@ const NoteDetails = (props: any) => {
   return (
     <ScrollView style={styles.conatiner}>
       <Text style={styles.time}>
-        {note.isUpDated
-          ? `Updated At ${formatDate(note.time)}`
-          : `Created At ${formatDate(note.time)}`}
+        {note.isUpDated ? `Updated At ${formatDate(note.time)}` : `Created At ${formatDate(note.time)}`}
       </Text>
 
       <Text style={styles.title}>{note.title}</Text>

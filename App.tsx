@@ -14,6 +14,7 @@ const App = () => {
   const [user, setUser] = useState<{}>({});
   const [isAppFirstTimeOpen, setIsAppFirstTimeOpen] = useState<boolean>(false);
 
+  console.log(user)
   const findUser = async () => {
     const name: any = await AsyncStorage.getItem("user");
 
